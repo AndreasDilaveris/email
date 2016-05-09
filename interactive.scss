@@ -1,0 +1,116 @@
+////////////////////////////////////////////////////////////
+// VARIABLES
+////////////////////////////////////////////////////////////
+
+// the following variables 'echo' are populated via gulp-preprocess in Gulpfile.js
+$frames: /* @echo FRAMES */ ;
+$names: /* @echo NAMES */ ;
+
+////////////////////////////////////////////////////////////
+// MIXINS
+////////////////////////////////////////////////////////////
+
+@mixin input-generator($frames) {
+	@for $i from 1 through $frames {
+		*[id]#option#{$i}:checked + table #option#{$i}content { display: block !important;}
+	}
+}
+
+@mixin input-styling($frames) {
+
+	/*
+
+	insert background images here
+
+	DO NOT ADD LAYOUT STYLES  ex. margin: 0px padding:, float, position, etc
+
+	*/
+
+	@for $i from 1 through $frames {
+		
+		#option#{$i}content{
+			/* ADD BG HERE */
+			background: nth($names, $i);
+			background-size:100%;
+			background-position:center;
+		}
+
+		#option#{$i}content:before{
+			background: none;			
+			/* ADD BG HERE */
+		}
+
+		#option#{$i}content:after{
+			background: none;			
+			/* ADD BG HERE */
+		}
+
+		/* next */
+	}
+
+	/*
+
+	end insert background images here
+
+	DO NOT ADD LAYOUT STYLES  ex. margin: 0px padding:, float, position, etc
+
+	*/
+			
+}
+
+/* 
+
+GENERATED TEMPLATE CSS -- INPUT 
+
+*/
+
+.hide, input, .interactiveContent {display: none !important;}
+
+
+.page {
+    padding-top: 100%;
+}
+
+
+@include input-generator($frames);
+
+
+/* TURN OFF FALLBACK CONTENT IF INPUTS ALLOWED */
+
+.desktopFallback:checked + table .hero_image {
+    display: none !important;
+}
+/* TURN ON INTERACTIVE CONTENT IF INPUTS ALLOWED */
+
+.interactiveChecker:checked + .interactiveContent {
+    display: inline !important;
+}
+
+
+@include input-styling($frames);
+
+.buttondiv{
+	margin-top: -22%;	
+}	
+
+.interactBtn { 
+	background:url(http://image.emails.burberry.com/lib/fe8b1273776d057572/m/23/SS1601_MC_BUTTON_WHITE_EN.png); 
+	background-size:80px;
+	background-repeat:no-repeat; 
+	cursor:pointer;
+	padding: 40px;
+	text-align: center;
+}
+
+/* 
+
+GENERATED TEMPLATE CSS -- INPUT ENDS HERE 
+
+*/
+
+
+
+/* ADDITIONAL GENERATED TEMPLATE CSS */
+
+/* ADDITIONAL GENERATED TEMPLATE CSSENDS HERE */
+
