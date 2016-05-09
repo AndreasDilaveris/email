@@ -1,9 +1,4 @@
 ##STEPS FOR USE
-populate a folder with the bg images - only one tier of complexity
-name them alphanumerically
-so that they remain organized in the folder - this will reduce risk of sequence issues
-
-*download from git hub*
 
 *   point terminal process to desired folder to begin project.  The easiest way to do this, drag folder onto terminal icon 
 
